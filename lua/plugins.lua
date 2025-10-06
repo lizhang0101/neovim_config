@@ -10,6 +10,7 @@ local enable = {
   hop       = true,
   markdown  = true,
   colors    = true,
+  outline   = true,
 }
 
 require("lazy").setup({
@@ -130,7 +131,21 @@ require("lazy").setup({
     config = function()
       vim.cmd("colorscheme dracula") end,
   },
-}, {
+
+  {
+    "hedyhli/outline.nvim",
+    enabled = enable.outline,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = {
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle Outline" },
+    },
+    opts = {
+      -- 你可以定制一些行为，比如自动折叠级别、是否自动刷新等
+    },
+  }
+}, 
+
+{
   defaults = { lazy = true },
   change_detection = { notify = false },
   performance = {
