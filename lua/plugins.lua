@@ -74,7 +74,12 @@ require("lazy").setup({
     enabled = enable.lualine,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-      options = { theme = "auto", section_separators = "", component_separators = "" },
+      options ={
+        theme = "auto",
+        section_separators = "",
+        component_separators = "",
+        globalstatus = true,
+    },
       sections = {
         lualine_a = { "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
@@ -122,7 +127,8 @@ require("lazy").setup({
     "Mofiqul/dracula.nvim",
     enabled = enable.colors,
     priority = 1000,
-    config = function() vim.cmd("colorscheme dracula") end,
+    config = function()
+      vim.cmd("colorscheme dracula") end,
   },
 }, {
   defaults = { lazy = true },
